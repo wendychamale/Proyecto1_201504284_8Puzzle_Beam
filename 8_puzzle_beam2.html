@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+<title>Puzzle Beam2</title>
+<script type="text/javascript" src="vis-network.min.js"></script>
+<script type="text/javascript" src="Beam2_8Puzzle.js"></script>
+
+</head>
+<body style="background-color:#4caf50">
+      <h1 align = " center "><font >Proyecto1 - 8 Puzzle Beam2</font></h1>
+      <h2 align = " center "><font color ="white">201504284 Wendy Aracely Chamale Boch</font></h2>
+
+<div id="mynetwork"></div>
+<script type="text/javascript">
+    var container = document.getElementById("mynetwork");
+	var DOTstring = puzzle()
+	var parsedData = vis.parseDOTNetwork(DOTstring);
+	var data = {
+	  nodes: parsedData.nodes,
+	  edges: parsedData.edges
+	}
+      var options = {
+            layout: {
+                  hierarchical: {
+                        levelSeparation: 100,
+                        nodeSpacing: 100,
+                        parentCentralization: true,
+                        direction: 'UD',    
+                        sortMethod: 'directed',
+                        shakeTowards: 'roots'                     
+		      },
+            },                        
+      };
+      var network = new vis.Network(container, data, options);
+    </script>  
+</body>
+</html>
